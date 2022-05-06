@@ -893,6 +893,8 @@ namespace olc
 	// O------------------------------------------------------------------------------O
 	class PixelGameEngine
 	{
+  public:
+    bool bForceQuitEvent = false;
 	public:
 		PixelGameEngine();
 		virtual ~PixelGameEngine();
@@ -3088,7 +3090,7 @@ namespace olc
 	{ return bAtomActive; }
 
 	void PixelGameEngine::olc_Terminate()
-	{ bAtomActive = false; }
+	{ bAtomActive = false; this->bForceQuitEvent = true; }
 
 	void PixelGameEngine::EngineThread()
 	{
